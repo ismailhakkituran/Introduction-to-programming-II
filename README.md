@@ -4,17 +4,21 @@ Pointer Uygulamaları
 ### 1. Temel Pointer Tanımı ve Adres Gösterimi
 
 * Değişkenin adresini gösterme
-* `int x = 5; int *px = &x; printf("%p %d", px, *px);`
+* ```c
+  int x = 5; int *px = &x; printf("%p %d", px, *px);
+  ```
 
 * `*px = 10;` yaparsak `x` değeri değişir mi?
 * Öncesi/sonrası değerleri ekrana yazdırınız.
 
 ---
 
-### 3. Pointer değişkeni kullanarak fonksiyondan bir veya daha fazla değer return yapılabilir mi?
+### 2. Pointer değişkeni kullanarak fonksiyondan bir veya daha fazla değer return yapılabilir mi?
 
-void bir fonksiyondan bir `int` değerin karesini global değişken kullanmadan nasıl elde edersiniz? 
-* `void kareAl(int *sayi)` ⇒ `*sayi = (*sayi) * (*sayi);` (Gerçekleyiniz 5 dk.)
+void bir fonksiyondan bir `int` değerin karesini global değişken kullanmadan nasıl elde edersiniz? (Gerçekleyiniz 5 dk.)
+```c
+void kareAl(int *sayi)` ⇒ `*sayi = (*sayi) * (*sayi);` 
+```
 \
 \
 \
@@ -40,7 +44,7 @@ int main() {
 }
 ```
 
-### 4. Fonksiyonla Birden Fazla Değer Döndürme
+### 3. Fonksiyonla Birden Fazla Değer Döndürme
 
 * Örnek: `void bolumKalan(int bolunen, int bolen, int *bolum, int *kalan);`
 * Kullanıcıdan sayı al, hem bölüm hem kalan döndür. Pointer konusunu bilmeseydiniz bu problemi nasıl çözerdiniz ? (Aynı fonksiyondan 2 tane değer döndürme problemi)
@@ -92,7 +96,7 @@ int main() {
 
 ---
 
-### 5. Pointer ile Diziye Erişim
+### 4. Pointer ile Diziye Erişim
 
 * `int dizi[] = {1,2,3}; int *p = dizi;`
 * `*(p + i)` ile dizi elemanlarını yazdır
@@ -121,45 +125,75 @@ int main() {
 ```
 ---
 
-### 6. Fonksiyona Dizi Gönderimi ve Ortalama Hesabı *(10 dk)*
+### 5. Fonksiyona Dizi Gönderimi ve Ortalama Hesabı
 
 * `void ortalama(int dizi[], int boyut, float *sonuc)`
 * Array + pointer + tek değer return
+(Kodlama 5 dk.)
+\
+\
+\
+\
+\
+\
+CEVAP:
+
+```c
+#include <stdio.h>
+
+void ortalama(int dizi[], int boyut, float *sonuc) {
+    int toplam = 0;
+    for (int i = 0; i < boyut; i++) {
+        toplam += dizi[i];
+    }
+    *sonuc = (float)toplam / boyut;
+}
+
+int main() {
+    int sayilar[] = {5, 10, 15, 20};
+    float ort;
+
+    ortalama(sayilar, 4, &ort);
+    printf("Ortalama: %.2f\n", ort);
+
+    return 0;
+}
+```
 
 ---
 
-### 7. Pointer ile Dinamik Bellek Yönetimi (malloc/free) *(10 dk)*
 
-* `int *dizi = malloc(n * sizeof(int));`
-* Kullanıcıdan kaç eleman alınacağını sor, değerleri oku, ortalamasını hesapla
 
----
+### 6. Pointer ve String İşlemleri
 
-### 8. Pointer ve String İşlemleri *(10 dk)*
+C programlama dili temelinde String isminde bir tip yoktur aslında. Bu ihtiyacı da char dizisi ile karşılarız.
 
-* `char *str = "merhaba";`
+* `char *str = "merhaba";` 
 * `strlen`, `strcpy`, `strcmp` gibi fonksiyonları kendin pointer ile yaz
 * Örnek: `int strlength(char *s)` vs
 
+```c
+#include <stdio.h>
+
+int strlength(char *s) {
+    int len = 0;
+    while (s[len] != '\0') {
+        len++;
+    }
+    return len;
+}
+
+int main() {
+    char *metin = "merhaba";
+    printf("'%s' kelimesinin uzunlugu: %d\n", metin, strlength(metin));
+
+    return 0;
+}
+```
 ---
 
-### 9. Struct ve Pointer (Bonus: C'de Object-like yapı) *(10 dk)*
 
-* `struct Ogrenci { char ad[20]; int yas; };`
-* Pointer ile struct alanlarına erişim (`ogrPtr->ad`)
-
----
-
-## Bonus (Zaman Kalırsa):
-
-* **Pointer to Pointer** (`int **pp`)
-* **Function Pointers** (`int (*f)(int, int)`)
-
----
-
-## Sunum veya Uygulama için Hazır Başlıklar
-
-| Başlık                   | İçerik                            |
+| Başlık                   | Düşünme İçeriği                            |
 | ------------------------ | --------------------------------- |
 | `&` ve `*` farkı         | Adres alma ve değer alma          |
 | Heap vs Stack            | malloc nerede çalışır?            |
