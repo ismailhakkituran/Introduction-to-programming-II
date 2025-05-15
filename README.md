@@ -168,7 +168,7 @@ int main() {
 
 ### 6. Pointer ve String İşlemleri
 
-C programlama dili temelinde String isminde bir tip yoktur aslında. Bu ihtiyacı da char dizisi ile karşılarız.
+C programlama dili temelinde String isminde bir tip yoktur aslında. Bu ihtiyacı da char dizisi ile karşılarız (30 dk + ev ödevi).
 
 * `char *str = "merhaba";` 
 * `strlen`, `strcpy`, `strcmp` gibi fonksiyonları kendin pointer ile yaz
