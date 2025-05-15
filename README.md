@@ -17,7 +17,7 @@ Pointer Uygulamaları
 
 void bir fonksiyondan bir `int` değerin karesini global değişken kullanmadan nasıl elde edersiniz? (Gerçekleyiniz 5 dk.)
 ```c
-void kareAl(int *sayi)` ⇒ `*sayi = (*sayi) * (*sayi);` 
+void kare-al(int *sayi)` ⇒ `*sayi = (*sayi) * (*sayi);` 
 ```
 \
 \
@@ -29,7 +29,7 @@ void kareAl(int *sayi)` ⇒ `*sayi = (*sayi) * (*sayi);`
 \
 CEVAP:
 ```c
-void kareAl(int *sayi) {
+void kare-al(int *sayi) {
     *sayi = (*sayi) * (*sayi);
 }
 
@@ -37,17 +37,17 @@ int main() {
     int x = 4;
     printf("Orijinal deger: %d\n", x);
 
-    kareAl(&x);
+    kare-al(&x);
 
     printf("Karesi: %d\n", x);
     return 0;
 }
 ```
 
-### 3. Fonksiyonla Birden Fazla Değer Döndürme
+### 3. Fonksiyondan Birden Fazla Değer Döndürme
 
-* Örnek: `void bolumKalan(int bolunen, int bolen, int *bolum, int *kalan);`
-* Kullanıcıdan sayı al, hem bölüm hem kalan döndür. Pointer konusunu bilmeseydiniz bu problemi nasıl çözerdiniz ? (Aynı fonksiyondan 2 tane değer döndürme problemi)
+* Örnek: `void bolme(int bolunen, int bolen, int *bolum, int *kalan);`
+* Kullanıcıdan sayı al, hem bölüm hem kalanı döndür. Pointer konusunu bilmeseydiniz bu problemi nasıl çözerdiniz ? (Aynı fonksiyondan 2 tane değer döndürme problemi)
 (Düşünme 5 dk.)
 
 \
@@ -78,7 +78,7 @@ Pointer kullanarak fonksiyona değişkeni değil, değişkenin adresini gönderm
 ```c
 #include <stdio.h>
 
-void bolumKalan(int bolunen, int bolen, int *bolum, int *kalan) {
+void bolum(int bolunen, int bolen, int *bolum, int *kalan) {
     *bolum = bolunen / bolen;
     *kalan = bolunen % bolen;
 }
@@ -87,7 +87,9 @@ int main() {
     int bolunen = 17, bolen = 5;
     int bolum, kalan;
 
-    bolumKalan(bolunen, bolen, &bolum, &kalan);
+    printf("Bolum: %d, Kalan: %d\n", bolum, kalan);
+
+    bolum(bolunen, bolen, &bolum, &kalan);
 
     printf("Bolum: %d, Kalan: %d\n", bolum, kalan);
     return 0;
@@ -193,11 +195,10 @@ int main() {
 ---
 
 
-| Başlık                   | Düşünme İçeriği                            |
-| ------------------------ | --------------------------------- |
-| `&` ve `*` farkı         | Adres alma ve değer alma          |
-| Heap vs Stack            | malloc nerede çalışır?            |
-| Dizi ve Pointer ilişkisi | `p[i]` = `*(p+i)`                 |
-| Bellek sızıntısı         | malloc + free unutulursa ne olur? |
+| Başlık                   | Düşünme İçeriği                         |
+| ------------------------ | --------------------------------------- |
+| `&` ve `*` farkı         | Adres alma ve değer alma                |
+| Heap vs Stack            | norml parametre vs referans parametre   |
+| Dizi ve Pointer ilişkisi | `p[i]` = `*(p+i)`                       |
 
 
