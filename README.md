@@ -17,7 +17,7 @@ Pointer Uygulamaları
 
 void bir fonksiyondan bir `int` değerin karesini global değişken kullanmadan nasıl elde edersiniz? (Gerçekleyiniz 5 dk.)
 ```c
-void kare-al(int *sayi)` ⇒ `*sayi = (*sayi) * (*sayi);` 
+void kare_al(int *sayi)` ⇒ `*sayi = (*sayi) * (*sayi);` 
 ```
 \
 \
@@ -29,7 +29,7 @@ void kare-al(int *sayi)` ⇒ `*sayi = (*sayi) * (*sayi);`
 \
 CEVAP:
 ```c
-void kare-al(int *sayi) {
+void kare_al(int *sayi) {
     *sayi = (*sayi) * (*sayi);
 }
 
@@ -37,7 +37,7 @@ int main() {
     int x = 4;
     printf("Orijinal deger: %d\n", x);
 
-    kare-al(&x);
+    kare_al(&x);
 
     printf("Karesi: %d\n", x);
     return 0;
@@ -59,7 +59,7 @@ int main() {
 CEVAP:
 
 Array kullanımı
-`int bolme-islemi[2]={  0 , 0 }` 1. elemana bölüm değerini, 2 elemana kalan değerini koyup, diziyi return ediniz.
+`int bolme_islemi[2]={  0 , 0 }` 1. elemana bölüm değerini, 2 elemana kalan değerini koyup, diziyi return ediniz.
 
 
 YENİ SORU:
