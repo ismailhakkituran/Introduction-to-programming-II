@@ -59,7 +59,7 @@ int main() {
 CEVAP:
 
 Array kullanımı
-`int bolme_islemi[2]={  0 , 0 }` 1. elemana bölüm değerini, 2 elemana kalan değerini koyup, diziyi return ediniz.
+`int bolme_islemi[2]={  0 , 0 }` 1. elemana bölüm değerini, 2 elemana kalan değerini koyup, diziyi return ediniz. (KÖTÜ BİR ÇÖZÜM.)
 
 
 YENİ SORU:
