@@ -78,7 +78,7 @@ Pointer kullanarak fonksiyona değişkeni değil, değişkenin adresini gönderm
 ```c
 #include <stdio.h>
 
-void bolum(int bolunen, int bolen, int *bolum, int *kalan) {
+void bolme(int bolunen, int bolen, int *bolum, int *kalan) {
     *bolum = bolunen / bolen;
     *kalan = bolunen % bolen;
 }
@@ -89,7 +89,7 @@ int main() {
 
     printf("Bolum: %d, Kalan: %d\n", bolum, kalan);
 
-    bolum(bolunen, bolen, &bolum, &kalan);
+    bolme(bolunen, bolen, &bolum, &kalan);
 
     printf("Bolum: %d, Kalan: %d\n", bolum, kalan);
     return 0;
