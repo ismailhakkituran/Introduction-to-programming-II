@@ -198,7 +198,7 @@ int main() {
 | Başlık                   | Düşünme İçeriği                         |
 | ------------------------ | --------------------------------------- |
 | `&` ve `*` farkı         | Adres alma ve değer alma                |
-| Heap vs Stack            | norml parametre vs referans parametre   |
+| Heap vs Stack            | normal parametre vs referans parametre  |
 | Dizi ve Pointer ilişkisi | `p[i]` = `*(p+i)`                       |
 
 
